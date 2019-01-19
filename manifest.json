@@ -1,0 +1,20 @@
+  {
+    "name": "Web Timer",
+    "version": "1.0",
+    "description": "Check how long you've spent on a website today",
+    "manifest_version": 2,
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "content_scripts": [
+	   {
+	     "matches": ["https://*.youtube.com/*"],
+	     "js": ["contentScript.js"]
+	   }
+	]
+  }
