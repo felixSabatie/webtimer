@@ -35,9 +35,12 @@ chrome.storage.sync.get(['values'], function(items){
 	    if (request.type === 'ytHidden') {
 			chrome.storage.sync.set({ values: { seconds: seconds, currentDay: currentDay } });
 	    	clearInterval(timer);
+	    	timer = null;
 	    }
 	    else if (request.type === 'ytShown') {
-	      setTimer();
+	    	if (!timer) {
+	      		setTimer();
+	    	}
 	    }
 	});
 });
